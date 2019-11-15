@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
 
-function App() {
+import {useState, useEffect} from 'react';
+import MountedCounter from './MountedCounter';
+
+import Header from './Header'
+import Footer from './Footer'
+
+import Select from './Select'
+import Option from './Option'
+
+import {UserContext} from './user-context';
+
+// hooks
+import {
+  useToggle,
+  useNumber,
+  useInput,
+  useDocumentTitle,
+  useMeasureWindow,
+  useTimer
+} from './hooks'
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Select>
+     <Option value="blue"> Blue </Option>
+     <Option value="red"> Red </Option>
+     <Option value="white"> White </Option>
+  </Select>
+
   );
 }
 
 export default App;
+ReactDOM.render(<App />, document.getElementById("root"));
